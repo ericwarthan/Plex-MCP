@@ -1,0 +1,7 @@
+{
+  "plex_name": "My Plex Server",
+  "plex_host": "192.168.1.x",
+  "plex_port": 32400,
+  "token": "YOUR_PLEX_TOKEN_HERE",
+  "plex_url": "http://192.168.1.x:32400"
+}

@@ -1,0 +1,33 @@
+# Live config (contains credentials — never commit)
+config/config.json
+config.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Backup output directories
+plex_backup/
+*.db.bak
+
+# MCP runtime data
+changes.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

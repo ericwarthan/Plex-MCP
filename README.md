@@ -301,4 +301,4 @@ Always run `plex_sync` with `dry_run=true` first. The summary shows every item t
 
 ## License
 
-MIT
+[AGPL-3.0](LICENSE) — free to use and modify, but if you deploy this as a service you must release your modifications under the same license.

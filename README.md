@@ -283,46 +283,6 @@ The server exposes **125+ tools** across 15 categories. Destructive operations (
 
 ---
 
-## Utility Scripts
-
-These scripts live in `scripts/` and are run directly on the server host — they are not MCP tools.
-
-### `plex_backup.py`
-Creates a complete backup of the Plex database and metadata. Run before any migration or major change.
-
-```bash
-python3 scripts/plex_backup.py
-# Output: plex_backup/plex_backup_YYYYMMDD_HHMMSS/
-```
-
-### `plex_restore.py`
-Restores from a backup created by `plex_backup.py`. Stop the Plex service before restoring.
-
-```bash
-sudo systemctl stop plexmediaserver
-python3 scripts/plex_restore.py plex_backup/plex_backup_20260606_120000
-sudo systemctl start plexmediaserver
-```
-
-### `plex_db_migrate.py`
-Migrates the Plex database between platforms (e.g. Windows → Linux). Rewrites absolute file paths in the SQLite database to match the new mount layout. Run after `plex_restore.py` when moving to a different OS.
-
-```bash
-python3 scripts/plex_db_migrate.py \
-  --db "/var/lib/plexmediaserver/.../Plex Media Server/Plug-in Support/Databases/com.plexapp.plugins.library.db" \
-  --old-prefix "C:\\Media" \
-  --new-prefix "/mnt/zoe"
-```
-
-**Recommended workflow for platform migration:**
-1. `plex_backup.py` on old server
-2. Transfer backup to new server
-3. `plex_restore.py` on new server
-4. `plex_db_migrate.py` to rewrite paths
-5. Start Plex and trigger a library scan
-
----
-
 ## Known Quirks
 
 **Git `ssh.exe` vs Windows OpenSSH**
